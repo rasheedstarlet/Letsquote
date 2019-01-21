@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1> In the generation of free thinkers and street geniuses, Where do we quote ourselves ? </h1>
+<h1> We needn't write books or lengthy articles to be remembered. </h1>
+<h1> Welcome to the Family. Quote Yourself. Share it. And be remebered Forever </h1>
+
+  {% for item in quotelist %}
+    <br/>
+    <hr>
+    <br/>
+    <h1 class="qmarks"> " </h1>
+      <p class="quote"> {{ item }} </p>
+    <h1 class="qmarks"> " </h1>
+    <p class="write"> - {{ item.writer }} </p>
+    <br/>
+    <hr>
+    <br/>
+
+  {% endfor %}
+
+{% endblock %}
