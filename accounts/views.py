@@ -1,8 +1,21 @@
 from django.shortcuts import render
 
 from django.contrib.auth import login, authenticate
+
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 from . forms import LoginForm
+
+def register(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("blog:quotes")
+    else:
+        form = UserCreationForm()
+        return render(request, "registration/register.html")
+
 
 def user_login(request):
     if request.method == "POST":
@@ -20,4 +33,4 @@ def user_login(request):
                 HttpResponse("Invalid Login")
     else:
         form = LoginForm()
-    request render(request, 'accounts/login.html', {'form':form})
+    return render(request, 'accounts/login.html', {'form':form})

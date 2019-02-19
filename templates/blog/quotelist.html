@@ -1,24 +1,58 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 
-<h1> In the generation of free thinkers and street geniuses, Where do we quote ourselves ? </h1>
-<h1> We needn't write books or lengthy articles to be remembered. </h1>
-<h1> Welcome to the Family. Quote Yourself. Share it. And be remebered Forever </h1>
+  <header> 
+    <div class="logo">
+      LETSQUOTE"
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <div class="user"> 
+            welcome {{ user }} 
+          </div>
+        </li>
+      </ul>
+      
+    </nav>
+  </header>
 
-  {% for item in quotelist %}
-    <br/>
-    <hr>
-    <br/>
-    <h1 class="qmarks"> " </h1>
-      <p class="quote"> {{ item }} </p>
-    <h1 class="qmarks"> " </h1>
-    <p class="write"> - {{ item.writer }} </p>
-    <br/>
-    <hr>
-    <br/>
+<div class="content">
+  <h1>
+    In the generation of free thinkers and street Geniuses, Where do we quote ourselves?
+    We needn't write books or lengthy articles to be remembered. Welcome to the Family. Quote Yourself. Share it. And be remebered Forever 
+  </h1>
+  <hr>
 
-  {% endfor %}
+    {% for item in quotelist %}
+      <br/>
+      <div class="quote-box">
+        <p class="quote"><sup class="quotesign">"</sup>{{ item }} <sub class="quotesign">"</sub> <span class="writer"> - {{ item.writer }} </span></p>
+      </div>
+      <hr>
+      <br/>
+    {% endfor %}
+
+    {% if is_paginated %}
+      <div class="pagination">
+        <span>
+
+          {% if page_obj.has_previous %}
+            <a href="{% url "blog:quotes" %} ?page={{ page_obj.previous_page_number }}">Previous</a>
+          {% endif %}
+
+          <span style="margin-left:15px; margin-right:15px;">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+          </span>
+
+          {% if page_obj.has_next %}
+            <a href="{% url "blog:quotes" %} ?page={{ page_obj.next_page_number }}">Next</a>
+          {% endif %}
+          
+        </span>
+      </div>
+</div>
+{% endif %}
 
 {% endblock %}

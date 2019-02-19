@@ -1,0 +1,51 @@
+body {
+	background: red;
+	color: white;
+	font-family: arial;
+}
+.content {
+	width: 60%;
+	margin: auto;
+	text-align: center;
+}
+
+header {
+	color: grey;
+	font-weight: bold;
+	background: white;
+	max-height: 90px;
+	max-width: 100%;
+	padding: 20px;
+	border-radius: 6px;
+}
+
+ul {
+margin-top: -20px;
+padding-bottom: 10px;
+}
+
+li{
+	display: inline;
+	float:right;
+	background: red;
+	padding: 20px;
+	border-radius: 6%;
+	color: white;
+}
+
+hr {
+	color: white;
+	height: 2px;
+	background: white;
+	border-radius: 5px;
+}
+
+.quotesign {
+	font-family: serif;
+	font-size: 24px;
+}
+
+.writer {
+	font-style: italic;
+	font-family: serif;
+}
